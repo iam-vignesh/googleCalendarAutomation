@@ -3,9 +3,10 @@ import csv
 
 
 def main():
-   # creates one hour event tomorrow 10 AM IST
+   
+   #open and read the CSV file that contains the list of events
 
-    with open("D:\Development\Google Calendar Automation\sample_schedule.csv", encoding= "utf-8-sig", newline='') as csvfile:
+    with open("PATH TO FILE\sample_schedule.csv", encoding= "utf-8-sig", newline='') as csvfile:
         filereader = csv.reader(csvfile)
         
         for row in filereader:
