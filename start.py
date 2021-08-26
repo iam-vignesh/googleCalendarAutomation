@@ -6,14 +6,11 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 
-# If modifying these scopes, delete the file token.json.
+# If modifying these scopes, delete the file token.json. Make sure to modify scope here after updating OAuth scope
 SCOPES = ['https://www.googleapis.com/auth/calendar.events']
 
 
 def cal_service():
-    """Shows basic usage of the Google Calendar API.
-    Prints the start and name of the next 10 events on the user's calendar.
-    """
     creds = None
     # The file token.json stores the user's access and refresh tokens, and is
     # created automatically when the authorization flow completes for the first
@@ -26,7 +23,7 @@ def cal_service():
             creds.refresh(Request())
         else:
             flow = InstalledAppFlow.from_client_secrets_file(
-                "D:\Development\Google Calendar Automation\credentials.json", SCOPES)
+                "PATH TO CREDENTIALS.JSON/credentials.json", SCOPES)
             creds = flow.run_local_server(port=0)
         # Save the credentials for the next run
         with open('token.json', 'w') as token:
@@ -34,21 +31,6 @@ def cal_service():
 
     service = build('calendar', 'v3', credentials=creds)
     return service
-
-    #Call the Calendar API
-    # now = datetime.datetime.utcnow().isoformat() + 'Z' # 'Z' indicates UTC time
-    # print('Getting the upcoming 10 events')
-    # events_result = service.events().list(calendarId='primary', timeMin=now,
-    #                                      maxResults=10, singleEvents=True,
-    #                                      orderBy='startTime').execute()
-    # events = events_result.get('items', [])
-
-    # if not events:
-    #     print('No upcoming events found.')
-    # for event in events:
-    #     start = event['start'].get('dateTime', event['start'].get('date'))
-    #     print(start, event['summary'])
-
 
 if __name__ == '__main__':
     cal_service()
