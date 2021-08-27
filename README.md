@@ -4,3 +4,6 @@ event_create.py will read the sample CSV file and call the calendar API endpoint
 
 ![image](https://user-images.githubusercontent.com/68957716/131166712-f05dd589-8534-4102-8f2e-5d848600c92e.png)
 
+
+![image](https://user-images.githubusercontent.com/68957716/131166872-9fb603bc-feef-443e-91f1-5ccb8b256e5a.png)
+
